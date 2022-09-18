@@ -7,58 +7,25 @@ let count = 0;
 // 크로아티아 알파벳에 해당하는 경우 count에 개수를 더하고,
 // i++을 하여 크로아티아 알파벳 다음 문자부터 다시 반복한다.
 for (let i = 0; i < input.length; i++) {
-    // 'c=', 'c-' 인 경우
-    if (input[i] === 'c') {
-        if (input[i+1] === '=' || input[i+1] === '-') {
-            count++
-            i++
-        } else {
-            count++
-        }
-    // 'dz=', 'd-' 인 경우
-    } else if (input[i] === 'd') {
-        if (input[i+1] === '-' ) {
-            count++
-            i++
-        } else if (input[i+1] === 'z' && input[i+2] === '=') {
-            count++
-            i = i + 2
-        } else {
-            count++
-        }
-    // 'lj' 인 경우
-    } else if (input[i] === 'l') {
-        if (input[i+1] === 'j') {
-            count++
-            i++
-        } else {
-            count++
-        }
-    // 'nj' 인 경우
-    } else if (input[i] === 'n') {
-        if (input[i+1] === 'j') {
-            count++
-            i++
-        } else {
-            count++
-        }
-    // 's=' 인 경우
-    } else if (input[i] === 's') {
-        if (input[i+1] === '=') {
-            count++
-            i++
-        } else {
-            count++
-        }
-    // 'z=' 인 경우
-    } else if (input[i] === 'z') {
-        if (input[i+1] === '=') {
-            count++
-            i++
-        } else {
-            count++
-        }
-    // 크로아티아 알파벳에 해당하지 않는 경우
+
+    // 문자 2개로 이루어진 크로아티아 알파벳인 경우
+    if ((input[i] === 'c' && input[i+1] === '=')
+     || (input[i] === 'c' && input[i+1] === '-')
+     || (input[i] === 'd' && input[i+1] === '-')
+     || (input[i] === 'l' && input[i+1] === 'j')
+     || (input[i] === 'n' && input[i+1] === 'j')
+     || (input[i] === 's' && input[i+1] === '=')
+     || (input[i] === 'z' && input[i+1] === '=')
+    ) {
+        count++
+        i++
+
+    // 문자 3개로 이루어진 크로아티아 알파벳인 경우 ('dz=')
+    } else if (input[i] === 'd' && input[i+1] === 'z' && input[i+2] === '=') {
+        count++
+        i = i + 2
+
+    // 크로아티아 알파벳이 아닌 경우
     } else {
         count++
     }
