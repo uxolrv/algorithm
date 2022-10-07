@@ -8,6 +8,5 @@ function solution(s){
         else if (letter === 'Y') yNum++
     }
     
-    if (pNum === yNum) return true
-    else return false
+    return pNum === yNum
 }
