@@ -18,8 +18,6 @@ function solution(n, arr1, arr2) {
     const binary1 = toBinaryNum(arr1)
     const binary2 = toBinaryNum(arr2)
     let result = [];
-    // 1은 벽, 0은 공백
-    // 하나라도 벽이면 벽, 둘다 공백이면 공백
 
     for (let i = 0; i < n; i++) {
         // 한 줄을 해독한 결과를 담을 str
