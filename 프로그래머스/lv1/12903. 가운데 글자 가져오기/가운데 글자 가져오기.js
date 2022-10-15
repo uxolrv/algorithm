@@ -1,5 +1,5 @@
 function solution(s) {
-  	const mid = s.length/2
-    return s.length % 2 === 1 ? s[Math.floor(mid)] :
+  	const mid = Math.floor(s.length/2)
+    return s.length % 2 === 1 ? s[mid] :
   	s.slice(mid - 1, mid + 1)
 }
