@@ -1,5 +1,5 @@
 function solution(nums) {
-    const num = nums.length/2
-    const unduplicated = [...new Set(nums)]
-    return unduplicated.length > num ? num : unduplicated.length
+    const max = nums.length/2
+    const typeNum = new Set(nums).size
+    return typeNum > max ? max : typeNum
 }
