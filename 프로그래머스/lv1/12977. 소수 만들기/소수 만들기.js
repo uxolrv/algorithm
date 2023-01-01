@@ -1,3 +1,12 @@
+function isPrime (num) {
+  for (let i = 2; i * i <= num; i++) {
+    if (num % i === 0) {
+      return false
+    }
+  }
+  return true
+}
+
 function solution(nums) {
   let count = 0
   
@@ -5,16 +14,8 @@ function solution(nums) {
     for(let j = i + 1; j < nums.length; j++) {
       for(let k = j + 1; k < nums.length; k++) {
         const num = nums[i] + nums[j] + nums[k]
-        let isPrime = true
         
-        for (let l = 2; l * l <= num; l++) {
-          if (num % l === 0) {
-            isPrime = false
-            break;
-          }
-        }
-        
-        if (isPrime) {
+        if (isPrime(num)) {
           count++
         }
       }
