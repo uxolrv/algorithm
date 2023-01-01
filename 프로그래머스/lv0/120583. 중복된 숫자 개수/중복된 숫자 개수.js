@@ -1,9 +1,5 @@
 function solution(array, n) {
-    let count = 0
-    
-    for (let num of array) {
-        if (num === n) count++
-    }
+    const count = array.filter(num => num === n).length
     
     return count;
 }
