@@ -1,11 +1,15 @@
 function solution(n) {
-    let result = 0;
-    
-    for (let i = 0; i <= n; i++) {
+    let sum = 0;
+
+    for(let i = 1; i * i <= n; i++) {
         if (n % i === 0) {
-            result += i
+            sum += i
+            // n / i이 i랑 같다면 이미 구한 약수이므로, 제외
+            if (n / i !== i) {
+              sum += n / i
+            }
         }
     }
-
-    return result;
+  
+    return sum;
 }
