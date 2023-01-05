@@ -1,11 +1,9 @@
 function solution(n) {
+  const sum = n
+    .toString()
+    .split('')
+    .map(Number)
+    .reduce((acc, cur) => acc + cur);
     
-    let result = 0;
-    let splitedN = String(n).split('')
-
-    for (let num of splitedN) {
-        result += Number(num)
-    }
-    
-    return result;
+  return sum;
 }
