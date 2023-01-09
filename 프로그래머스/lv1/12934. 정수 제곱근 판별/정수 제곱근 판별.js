@@ -1,4 +1,5 @@
 function solution(n) {
-  	const pow = Math.sqrt(n)
-  	return pow % 1 === 0 ? (pow+1)**2 : -1
+  const sqrt = Math.sqrt(n);
+  
+  return sqrt % 1 > 0 ? -1 : (sqrt + 1) ** 2;
 }
