@@ -5,9 +5,5 @@ function solution(A, B) {
   // 내림차순으로 B 정렬
   const descendingB = B.sort((a, b) => b - a);
 
-  for (let i = 0; i < A.length; i++) {
-    result += acsendingA[i] * descendingB[i];
-  }
-
-  return result;
+  return acsendingA.reduce((acc, cur, i) => acc + cur * descendingB[i], 0);
 }
