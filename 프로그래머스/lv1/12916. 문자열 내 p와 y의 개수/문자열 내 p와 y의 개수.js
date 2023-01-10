@@ -1,12 +1,11 @@
 function solution(s){
     let upper = s.toUpperCase()
-    let pNum = 0;
-    let yNum = 0;
-    
+    let count = 0;
+
     for (let letter of upper) {
-        if (letter === 'P') pNum++
-        else if (letter === 'Y') yNum++
+        if (letter === 'P') count++
+        else if (letter === 'Y') count--
     }
-    
-    return pNum === yNum
+  
+    return count === 0
 }
