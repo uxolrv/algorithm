@@ -1,10 +1,9 @@
 function solution(s){
-    let upper = s.toUpperCase()
     let count = 0;
 
-    for (let letter of upper) {
-        if (letter === 'P') count++
-        else if (letter === 'Y') count--
+    for (let letter of s) {
+        if ('Pp'.includes(letter)) count++
+        else if ('Yy'.includes(letter)) count--
     }
   
     return count === 0
