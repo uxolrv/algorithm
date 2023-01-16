@@ -1,20 +1,20 @@
 function solution(s) {
-
+  const openBrackets = [];
+    
   if (s[0] === ')' || s[s.length - 1] === '(') {
     return false;
   }
 
-  const openBracket = [];
-
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(') openBracket.push('open');
-    if (s[i] === ')') {
-      if (!openBracket.length) {
+  s.split('').map((bracket) => {
+    if (bracket === '(') {
+      openBrackets.push('open');
+    } else if (bracket === ')') {
+      if (!openBrackets.length) {
         return false;
       }
-      openBracket.pop();
+      openBrackets.pop();
     }
-  }
-  
-  return openBracket.length ? false : true;
+  })
+
+  return !openBrackets.length;
 }
