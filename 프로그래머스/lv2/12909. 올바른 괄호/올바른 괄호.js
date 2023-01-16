@@ -5,7 +5,7 @@ function solution(s) {
     return false;
   }
 
-  s.split('').map((bracket) => {
+  for (let bracket of s) {
     if (bracket === '(') {
       openBrackets.push('open');
     } else if (bracket === ')') {
@@ -14,7 +14,7 @@ function solution(s) {
       }
       openBrackets.pop();
     }
-  })
+  }
 
   return !openBrackets.length;
 }
