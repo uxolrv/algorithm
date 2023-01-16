@@ -1,20 +1,20 @@
 function solution(s) {
-  const openBrackets = [];
+  let openBrackets = 0;
     
   if (s[0] === ')' || s[s.length - 1] === '(') {
     return false;
   }
 
-  for (let bracket of s) {
+  s.split('').map((bracket) => {
     if (bracket === '(') {
-      openBrackets.push('open');
+      openBrackets++;
     } else if (bracket === ')') {
-      if (!openBrackets.length) {
+      if (!openBrackets) {
         return false;
       }
-      openBrackets.pop();
+      openBrackets--;
     }
-  }
+  })
 
-  return !openBrackets.length;
+  return !openBrackets;
 }
