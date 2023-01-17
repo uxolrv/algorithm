@@ -3,15 +3,14 @@ function solution(s) {
   let oneCollection = [];
   // 이진 변환의 결과
   let binary = s;
-  let countZero = 0;
-  let countTranslation = 0;
+  let count = [0, 0];
 
   while (binary !== '1') {
     oneCollection = binary.split('').filter((num) => num === '1');
-    countZero += binary.length - oneCollection.length;
+    count[1] += binary.length - oneCollection.length;
     binary = oneCollection.length.toString(2);
-    countTranslation++;
+    count[0]++;
   }
 
-  return [countTranslation, countZero];
+  return count;
 }
