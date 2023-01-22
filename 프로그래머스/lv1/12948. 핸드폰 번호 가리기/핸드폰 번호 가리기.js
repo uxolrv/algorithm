@@ -1,6 +1,6 @@
 function solution(phone_number) {
-  const hideLength = phone_number.length - 4;
-  const number = '*'.repeat(hideLength);
+  const hiddenLength = phone_number.length - 4;
+  const hidden = '*'.repeat(hiddenLength);
 
-  return number + phone_number.slice(hideLength);
+  return hidden + phone_number.slice(hiddenLength);
 }
