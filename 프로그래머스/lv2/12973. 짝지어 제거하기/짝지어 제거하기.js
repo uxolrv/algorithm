@@ -8,17 +8,12 @@ function solution(s) {
     // 앞으로 순회하는 모든 문자가 짝이 맞아도 결국 짝이 부족함
     if (solo.length > s.length - i) return 0;
 
-    if (s[i] === s[i + 1]) {
-      i++; // 2개 건너뛰기
-      // 이번 거랑 다음 거랑 같지 않다면?
-    } else {
-      // 근데 solo의 마지막이랑 현재랑 같으면?
+      // solo의 마지막이랑 현재랑 같으면?
       if (solo[solo.length - 1] === s[i]) {
         solo.pop(); // 짝맞춰 제거
       } else {
         solo.push(s[i]); // 아니면 추가
       }
-    }
   }
 
   return solo.length === 0 ? 1 : 0;
