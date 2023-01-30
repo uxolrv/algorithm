@@ -16,7 +16,7 @@ function solution(s) {
       if (solo[solo.length - 1] === s[i]) {
         solo.pop(); // 짝맞춰 제거
       } else {
-        solo[solo.length] = s[i]; // 아니면 추가
+        solo.push(s[i]); // 아니면 추가
       }
     }
   }
