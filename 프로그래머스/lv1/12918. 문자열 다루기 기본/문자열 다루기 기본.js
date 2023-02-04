@@ -1,5 +1,4 @@
 function solution(s) {
-    let regex = /[a-zA-Z]/g
-    if (s.length !== 4 && s.length !== 6) return false
-    return !regex.test(s)
+  const regex = /[^0-9]/g;
+  return ![4, 6].includes(s.length) ? false : !regex.test(s);
 }
