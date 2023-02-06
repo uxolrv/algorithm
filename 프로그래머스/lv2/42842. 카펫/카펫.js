@@ -5,9 +5,8 @@ function solution(brown, yellow) {
   }
 
   let yellowHeight = 1; // 노란색 격자 높이
-  let column = 3; // 전체 카펫 세로 길이
+  let column = 3; // 카펫 세로 길이
 
-  // 카펫 가로 길이 * 세로 길이 = brown 개수 + yellow 개수
   while ((yellow / yellowHeight + 2) * column !== brown + yellow) {
     yellowHeight++;
     column++;
@@ -15,3 +14,10 @@ function solution(brown, yellow) {
 
   return [yellow / yellowHeight + 2, column];
 }
+
+/*
+  🟫🟫🟫🟫🟫🟫   ==>  전체 가로 길이 = 전체 노란색 개수 / 노란색 세로 길이 + 2
+  🟫🟨🟨🟨🟨🟫   
+  🟫🟨🟨🟨🟨🟫
+  🟫🟫🟫🟫🟫🟫   ==>  전체 가로 길이 * 전체 세로 길이 = brown 개수 + yellow 개수
+*/
