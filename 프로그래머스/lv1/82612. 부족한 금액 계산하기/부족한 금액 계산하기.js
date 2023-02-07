@@ -1,10 +1,8 @@
 function solution(price, money, count) {
-  let total = 0;
-
   while (count !== 0) {
-    total += price * count;
+    money -= price * count;
     count--;
   }
 
-  return money < total ? total - money : 0;
+  return money < 0 ? -money : 0;
 }
