@@ -1,20 +1,13 @@
 function solution(n, m) {
-  const nums = [n, m].sort((a, b) => a - b);
-  const result = [];
+  const getGCD = (n, m) => {
+    return n % m === 0 ? m : getGCD(m, n % m);
+  };
 
-  for (let i = nums[0]; i > 0; i--) {
-    if (n % i === 0 && m % i === 0) {
-      result[0] = i;
-      break;
-    }
-  }
+  const gcd = getGCD(n, m);
 
-  for (let i = nums[1]; i <= n * m; i++) {
-    if (i % n === 0 && i % m === 0) {
-      result[1] = i;
-      break;
-    }
-  }
+  const getLCM = (n, m) => {
+    return (n * m) / gcd;
+  };
 
-  return result;
+  return [gcd, getLCM(n, m)];
 }
