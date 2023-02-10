@@ -3,11 +3,9 @@ function solution(n, m) {
     return n % m === 0 ? m : getGCD(m, n % m);
   };
 
-  const gcd = getGCD(n, m);
-
   const getLCM = (n, m) => {
-    return (n * m) / gcd;
+    return (n * m) / getGCD(n, m);
   };
 
-  return [gcd, getLCM(n, m)];
+  return [getGCD(n, m), getLCM(n, m)];
 }
