@@ -1,3 +1,4 @@
 function solution(n) {
-    return parseInt(n.toString(3).split('').reverse().join(''), 3)
+  const reverse = [...n.toString(3)].reverse().join('');
+  return parseInt(reverse, 3);
 }
