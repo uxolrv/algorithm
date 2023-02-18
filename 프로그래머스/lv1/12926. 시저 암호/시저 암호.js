@@ -1,24 +1,21 @@
 function solution(s, n) {
-    const capital = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    const small = 'abcdefghijklmnopqrstuvwxyz'
-    let result = ''
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === ' ') {
-            result += ' '
-            continue;
-        }
-        for (let j = 0; j < capital.length; j++) {
-            let idx = j + n
-            if (j + n > capital.length - 1) {
-                idx = j + n - capital.length
-            }
-            
-            if (s[i] === capital[j]) {
-                result += capital[idx]
-            } else if (s[i] === small[j]) {
-                result += small[idx]
-            }
-        }
+  let result = '';
+  const alphabets = {
+    lower: 'abcdefghijklmnopqrstuvwxyz',
+    upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+  };
+
+  for (let char of s) {
+    const key = alphabets.lower.includes(char) ? 'lower' : 'upper';
+    const idx = alphabets[key].indexOf(char);
+    if (char === ' ') {
+      result += ' ';
+    } else if (idx + n > 25) {
+      result += alphabets[key][idx + n - 26];
+    } else {
+      result += alphabets[key][idx + n];
     }
-    return result;
+  }
+
+  return result;
 }
