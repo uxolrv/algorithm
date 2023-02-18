@@ -1,4 +1,5 @@
-function solution(s, n, result = '') {
+function solution(s, n) {
+  let result = '';
   const alphabets = {
     lower: 'abcdefghijklmnopqrstuvwxyz',
     upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
