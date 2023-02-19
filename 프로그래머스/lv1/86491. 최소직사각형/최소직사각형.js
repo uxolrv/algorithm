@@ -1,7 +1,11 @@
 function solution(sizes) {
-  sizes.map((size) => size.sort((a, b) => b - a));
+  const wallet = [0, 0];
 
-  const row = Math.max(...sizes.map((size) => size[0]));
-  const column = Math.max(...sizes.map((size) => size[1]));
-  return row * column;
+  sizes.map((size) => {
+    size.sort((a, b) => b - a);
+    if (size[0] > wallet[0]) wallet[0] = size[0];
+    if (size[1] > wallet[1]) wallet[1] = size[1];
+  });
+
+  return wallet[0] * wallet[1];
 }
