@@ -8,11 +8,7 @@ function solution(n, arr1, arr2) {
     let decode = '';
 
     for (let j = 0; j < n; j++) {
-      if (arr1[i][j] === '1' || arr2[i][j] === '1') {
-        decode += '#';
-      } else {
-        decode += ' ';
-      }
+      decode += arr1[i][j] === '1' || arr2[i][j] === '1' ? '#' : ' ';
     }
     result[i] = decode;
   }
