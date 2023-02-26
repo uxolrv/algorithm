@@ -5,5 +5,5 @@ function solution(s) {
     if (s.includes(engNum[i])) s = s.replaceAll(engNum[i], i);
   }
 
-  return Number(s);
+  return +s;
 }
