@@ -17,12 +17,5 @@ function solution(n, arr1, arr2) {
 }
 
 function convertToBinary(arr, n) {
-  for (let i = 0; i < n; i++) {
-    arr[i] = arr[i].toString(2);
-
-    if (arr[i].length < n) {
-      arr[i] = '0'.repeat(n - arr[i].length) + arr[i];
-    }
-  }
-  return arr;
+  return arr.map((num) => num.toString(2).padStart(n, '0'));
 }
