@@ -1,14 +1,13 @@
 function solution(a, b) {
-  const dayOfWeek = ['FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU'];
-  let days = (a - 1) * 30 + (b - 1);
+  const DAY_OF_WEEK = ['THU', 'FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED'];
+  let dayNum = 0;
 
-  if (a !== 1 && a !== 3) {
-    if (a <= 5) days += 1;
-    else if (a <= 7) days += 2;
-    else if (a === 8) days += 3;
-    else if (a <= 10) days += 4;
-    else if (a <= 12) days += 5;
+  if (a <= 2) {
+    dayNum = (a - 1) * 31 + b;
+  } else {
+    dayNum = Math.ceil((a - 1) / 2) * 31 + Math.floor((a - 1) / 2) * 30 - 1 + b;
+    if (a > 7 && a % 2 === 1) dayNum++; // 8월부터는 짝수 달이 31일
   }
 
-  return dayOfWeek[days % 7];
+  return DAY_OF_WEEK[dayNum % 7];
 }
