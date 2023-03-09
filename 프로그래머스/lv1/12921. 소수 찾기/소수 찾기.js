@@ -1,18 +1,14 @@
 function solution(n) {
-    // 0과 1은 소수가 아니므로 false로 채워둔다
-    const arr = new Array(n + 1).fill(true, 2).fill(false, 0, 2);
-    
-    for(let i = 2; i <= Math.sqrt(n); ++i){
-        // 이미 제거된 인덱스는 건너뛰기
-        if(arr[i] === false){
-            continue; 
-        }
-        // i를 제외한 i의 배수를 제거
-        for(let k = i * i; k <= n; k += i){
-            arr[k] = false;
-        }
+  // √n 이하 수의 배수를 제거하고 남는 수는 모두 소수
+
+  const upToN = [...Array(n + 1)].fill(true).fill(false, 0, 2); // 0부터 2까지는 소수가 아님
+
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    for (let multiple = i * 2; multiple <= n; multiple += i) {
+      if (upToN[multiple] === false) continue;
+      upToN[multiple] = false;
     }
-    
-    const count = arr.filter(isPrime => !!isPrime).length
-    return count;
+  }
+
+  return upToN.filter((num) => num === true).length;
 }
