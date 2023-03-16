@@ -22,13 +22,16 @@ function solution(dartResult) {
       // 보너스일 경우
     } else if (bonusIdx !== -1) {
       scores[last] = Math.pow(scores[last], bonusIdx);
-      // #(아차상)일 경우
-    } else if (optionIdx) {
-      scores[last] = -scores[last];
-      // *(스타상)일 때
+      // 옵션일 경우
     } else {
-      scores[last] *= 2;
-      scores[last - 1] *= 2;
+      // #(아차상)일 경우
+      if (optionIdx) {
+        scores[last] = -scores[last];
+        // *(스타상)일 경우
+      } else {
+        scores[last] *= 2;
+        scores[last - 1] *= 2;
+      }
     }
   }
 
