@@ -1,4 +1,6 @@
 function solution(lottos, win_nums) {
+  let correct = 0;
+  let zero = 0;
   // 일치 번호 수: 순위
   const ranking = {
     6: 1,
@@ -10,8 +12,10 @@ function solution(lottos, win_nums) {
     0: 6,
   };
 
-  const correct = lottos.filter((num) => win_nums.includes(num)).length;
-  const zero = lottos.filter((num) => num === 0).length;
+  lottos.forEach((lotto) => {
+    if (win_nums.includes(lotto)) correct++;
+    else if (lotto === 0) zero++;
+  });
 
   return [ranking[correct + zero], ranking[correct]];
 }
