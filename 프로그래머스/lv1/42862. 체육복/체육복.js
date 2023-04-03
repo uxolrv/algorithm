@@ -1,20 +1,20 @@
 function solution(n, lost, reserve) {
-  const lent = [];
-  const rest = filtering(reserve, lost);
-  lost = filtering(lost, reserve);
+  const spare = filtering(reserve, lost);
+  const lostStudents = filtering(lost, reserve);
+  const lent = []; // 빌려준 체육복
 
-  for (let i = 0; i < lost.length; i++) {
-    for (let j = 0; j < rest.length; j++) {
-      const isLendable = [lost[i] - 1, lost[i] + 1].includes(rest[j]);
+  for (let student of lostStudents) {
+    for (let clothes of spare) {
+      const isLendable = [student - 1, student + 1].includes(clothes);
 
-      if (isLendable && !lent.includes(rest[j])) {
-        lent.push(rest[j]);
+      if (isLendable && !lent.includes(clothes)) {
+        lent.push(clothes);
         break;
       }
     }
   }
 
-  return n - lost.length + lent.length;
+  return n - lostStudents.length + lent.length;
 }
 
 function filtering(arr1, arr2) {
