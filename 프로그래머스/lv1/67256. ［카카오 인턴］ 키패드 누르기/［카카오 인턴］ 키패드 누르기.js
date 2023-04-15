@@ -1,24 +1,20 @@
 function solution(numbers, hand) {
-  let position = [
-    [3, 0],
-    [3, 2],
-  ];
-  const rule = {
-    left: [1, 4, 7],
-    right: [3, 6, 9],
+  let position = {
+    L: [3, 0],
+    R: [3, 2],
   };
 
-  const a = numbers.reduce((acc, cur) => {
-    const press = cur === 0 ? [3, 1] : [Math.floor((cur - 1) / 3), (cur - 1) % 3]; // 이번에 누를 위치
+  return numbers.reduce((acc, cur) => {
+    const press = cur === 0 ? [3, 1] : [Math.floor((cur - 1) / 3), (cur - 1) % 3]; // 이번에 누른 수의 위치
     let usedHand = ''; // 이번에 사용한 손
 
-    if (rule.left.includes(cur)) {
+    if (cur % 3 === 1) {
       usedHand = 'L';
-    } else if (rule.right.includes(cur)) {
+    } else if (cur && cur % 3 === 0) {
       usedHand = 'R';
     } else {
-      const leftDistance = getDistance(press, position[0]);
-      const rightDistance = getDistance(press, position[1]);
+      const leftDistance = getDistance(press, position['L']);
+      const rightDistance = getDistance(press, position['R']);
 
       if (leftDistance < rightDistance) {
         usedHand = 'L';
@@ -29,12 +25,9 @@ function solution(numbers, hand) {
       }
     }
 
-    usedHand === 'L' ? (position[0] = press) : (position[1] = press);
-
+    position[usedHand] = press;
     return acc + usedHand;
   }, '');
-
-  return a;
 }
 
 const getDistance = (press, position) => {
