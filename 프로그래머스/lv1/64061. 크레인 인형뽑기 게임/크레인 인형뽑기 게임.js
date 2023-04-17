@@ -6,17 +6,14 @@ function solution(board, moves) {
     for (let line of board) {
       const doll = line[move - 1];
 
-      if (doll) {
-        line[move - 1] = 0;
+      // 인형이 없는 빈칸이라면 다음 줄 탐색
+      if (!doll) continue;
 
-        if (basket[basket.length - 1] === doll) {
-          basket.pop();
-          result += 2;
-        } else {
-          basket.push(doll);
-        }
-        break;
-      }
+      // 인형이 있던 자리에 0을 할당하여 빈칸임을 표시
+      line[move - 1] = 0;
+
+      basket[basket.length - 1] !== doll ? basket.push(doll) : (basket.pop(), (result += 2));
+      break;
     }
   }
 
