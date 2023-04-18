@@ -6,7 +6,7 @@ function solution(s) {
   for (let i = 1; i <= s.length; i++) {
     first === s[i] ? count[0]++ : count[1]++;
 
-    if (count[0] === count[1] || s.length - 1 === i) {
+    if (count[0] === count[1] || s.length === i) {
       first = s[i + 1];
       count = [1, 0];
       result++;
