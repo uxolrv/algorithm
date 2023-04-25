@@ -3,8 +3,8 @@ function solution(s, skip, index) {
     (alphabet) => !skip.includes(alphabet)
   );
 
-  return [...s].reduce((acc, cur) => {
-    const charIdx = alphabets.indexOf(cur) + index;
-    return acc + alphabets[charIdx % alphabets.length];
-  }, '');
+  return [...s].map((char, i) => {
+    const charIdx = alphabets.indexOf(char) + index;
+    return alphabets[charIdx % alphabets.length]
+  }).join('')
 }
