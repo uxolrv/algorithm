@@ -18,5 +18,5 @@ function solution(elements) {
         }
     }
 
-    return [...set].length
+    return set.size
 }
